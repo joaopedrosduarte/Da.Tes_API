@@ -123,11 +123,11 @@ async def newStartup(instituicao:Instituicao, startup:Startup):
         }
          
 # search by id
-@app.get('/api/startups/id/{company_id}')
-async def startupById(companyById:int):
-    data = con.execute(startupDB.select().where(startupDB.c.company_id == companyById))
-    startupsById = data.fetchall()
-    res = []
+# @app.get('/api/startups/id/{company_id}')
+# async def startupById(companyById:int):
+#     data = con.execute(startupDB.select().where(startupDB.c.company_id == companyById))
+#     startupsById = data.fetchall()
+#     res = []
     # for s in startupsById:
     #     res.append({
     #         "company_id": s.company_id,
@@ -155,11 +155,11 @@ async def startupById(companyById:int):
     # }     
 
 # search by company_segment
-@app.get('/api/startups/company_segment/{company_segment}')
-async def startupBySegment(companySegment:str):
-    data = con.execute(startupDB.select().where(startupDB.c.company_segment == companySegment))
-    startupsBySegment = data.fetchall()
-    res = []
+# @app.get('/api/startups/company_segment/{company_segment}')
+# async def startupBySegment(companySegment:str):
+#     data = con.execute(startupDB.select().where(startupDB.c.company_segment == companySegment))
+#     startupsBySegment = data.fetchall()
+#     res = []
     # for s in startupsBySegment:
     #     res.append({
     #         "company_id": s.company_id,
@@ -186,18 +186,18 @@ async def startupBySegment(companySegment:str):
     #     "data": res
     # }     
 
-# delete data by id
-@app.delete('/api/delete_startup/{company_id}')
-async def deleteStartup(company_id:int):
-    data=con.execute(startupDB.delete().where( startupDB.c.company_id == company_id ))
-    if data:
-        con.commit()
-        return {
-            "success": True,
-            "msg":"Startup Delete Successfully"
-        }
-    else:
-        return {
-            "success": False,
-            "msg":"Some Problem"
-        }
+# # delete data by id
+# @app.delete('/api/delete_startup/{company_id}')
+# async def deleteStartup(company_id:int):
+#     data=con.execute(startupDB.delete().where( startupDB.c.company_id == company_id ))
+#     if data:
+#         con.commit()
+#         return {
+#             "success": True,
+#             "msg":"Startup Delete Successfully"
+#         }
+#     else:
+#         return {
+#             "success": False,
+#             "msg":"Some Problem"
+#         }
